@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
+import { GroceryService } from './grocery.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-green-grocers';
+  title = 'angular-green-grocers'
+
+  constructor(private groceryService: GroceryService) {}
+
+  ngOnInit(): void{
+    this.groceryService.fetchGroceries()
+  }
 }
